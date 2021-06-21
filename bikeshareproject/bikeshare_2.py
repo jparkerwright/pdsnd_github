@@ -216,6 +216,7 @@ def raw_data(df):
     start_row = 0
     end_row = 5
 
+    # create a while loop to continue providing rows of raw data if desired, and to handle invalid inputs
     while True:
         user_input = input('\nWould you like to see 5 rows of raw data? Enter yes or no.\n').lower()
         if user_input.lower() == 'yes':
