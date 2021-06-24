@@ -27,7 +27,7 @@ def get_filters():
     while True:
         city = input('Please specify the city you would like to explore: ' ).lower()
         if city.lower() not in cities:
-            print('Sorry! We only have data for Chicago, New York City, and Washington, please try again. \n')
+            print('Sorry! We only have data for cities Chicago, New York City, and Washington, please try again... \n')
             continue
         else:
             print('Thanks! \n')
@@ -38,7 +38,7 @@ def get_filters():
     while True:
         month = input('Please select a month from January to June that you would like to explore (you may select "all"): ').lower()
         if month.lower() not in months:
-            print('Oops! We don\'t have data for this month, please try again. \n')
+            print('Oops! We don\'t have data for this month, please try again... \n')
             continue
         else:
             print('Thanks! \n')
@@ -49,7 +49,7 @@ def get_filters():
     while True:
         day = input('Please select a day of the week that you would like to explore (you may select "all"): ').lower()
         if day.lower() not in days:
-            print('Oops! That\'s not a day of the week we\'re looking for, please try again. \n')
+            print('Oops! That\'s not a day of the week we\'re looking for, please try again... \n')
             continue
         else:
             print('Thanks! Let\'s calculate some descriptive statistics for you... \n')
@@ -102,7 +102,7 @@ def load_data(city, month, day):
 def time_stats(df):
     """Displays statistics on the most frequent times of travel."""
 
-    print('\nCalculating The Most Frequent Times of Travel...\n')
+    print('\nCalculating Statistics on The Most Frequent Times of Travel...\n')
     start_time = time.time()
 
     # display the most common month
@@ -128,7 +128,7 @@ def time_stats(df):
 def station_stats(df):
     """Displays statistics on the most popular stations and trip."""
 
-    print('\nCalculating The Most Popular Stations and Trip...\n')
+    print('\nCalculating Statistics on The Most Popular Stations and Trip...\n')
     start_time = time.time()
 
     # display most commonly used start station
@@ -154,17 +154,17 @@ def station_stats(df):
 def trip_duration_stats(df):
     """Displays statistics on the total and average trip duration."""
 
-    print('\nCalculating Trip Duration...\n')
+    print('\nCalculating Statistics on Trip Duration...\n')
     start_time = time.time()
 
     # display total travel time
     total_travel_time = df['Trip Duration'].sum()
-    print('Total Travel Time (minutes): ', (total_travel_time / 60))
+    print('Total Travel Time (in minutes): ', (total_travel_time / 60))
     print()
 
     # display mean travel time
     mean_travel_time = df['Trip Duration'].mean()
-    print('Mean Travel Time (minutes): ', (mean_travel_time / 60))
+    print('Mean Travel Time (in minutes): ', (mean_travel_time / 60))
     print()
 
     print("\nThis took %s seconds." % (time.time() - start_time))
@@ -187,7 +187,7 @@ def user_stats(df):
         gender_types = df['Gender'].value_counts()
         print('Gender Type Counts: \n', gender_types)
     except Exception:
-        print('No gender data available...')
+        print('No gender data available for this city...')
 
     print()
 
@@ -204,7 +204,7 @@ def user_stats(df):
         print('Most Common Birth Year:', common_year)
         print()
     except Exception:
-        print('No birth year data available...')
+        print('No birth year data available for this city...')
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -232,7 +232,7 @@ def raw_data(df):
             print('-'*40)
 
         else:
-            print('Sorry we didn\'t get that, please enter yes or no if you would like to see some rows of raw data.\n')
+            print('Sorry I didn\'t get that, please enter yes or no if you would like to see rows of raw data.\n')
 
 
 def main():
