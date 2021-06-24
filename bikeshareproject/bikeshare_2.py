@@ -142,9 +142,9 @@ def station_stats(df):
     print()
 
     # display most frequent combination of start station and end station trip
-    df['Combo Station'] = df['Start Station'] + ' ' + '/' + ' ' + df['End Station']
-    common_combo = df['Combo Station'].mode()[0]
-    print('Trip: ', common_combo)
+    df['Start_End Station'] = df['Start Station'] + ' ' + 'to' + ' ' + df['End Station']
+    common_start_end = df['Start_End Station'].mode()[0]
+    print('Trip: ', common_start_end)
     print()
 
     print("\nThis took %s seconds." % (time.time() - start_time))
@@ -193,11 +193,11 @@ def user_stats(df):
 
     # Display earliest, most recent, and most common year of birth
     try:
-        early_year = df['Birth Year'].min()
+        earliest_year = df['Birth Year'].min()
         recent_year = df['Birth Year'].max()
         common_year = df['Birth Year'].mode()[0]
 
-        print('Earliest Birth Year: ', early_year)
+        print('Earliest Birth Year: ', earliest_year)
         print()
         print('Most Recent Birth Year: ', recent_year)
         print()
